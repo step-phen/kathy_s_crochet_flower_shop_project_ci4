@@ -1,0 +1,28 @@
+/* Product Details Page Custom Styles */
+.product-details-combined {
+    max-width: 1200px;
+}
+.product-image-wrapper {
+    min-width: 320px;
+    max-width: 400px;
+    width: 32vw;
+}
+.product-detail-img {
+    width: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+}
+.product-detail-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    cursor: pointer;
+}
+.product-detail-info {
+    min-width: 320px;
+}
+.product-detail-qty-input {
+    width: 50px;
+    display: inline-block;
+}

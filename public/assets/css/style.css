@@ -1,0 +1,321 @@
+/* --- General Styles --- */
+/* Breadcrumb Styles */
+.breadcrumb {
+    --bs-breadcrumb-divider: '>';
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+.breadcrumb-item a {
+    color: #E45A92;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.breadcrumb-item a:hover {
+    color: #FF3F7F;
+}
+.breadcrumb-item.active {
+    color: #E45A92;
+    font-weight: 700;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #fff8fa;
+    transition: background 0.3s;
+}
+
+.playfair-display {
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- Header Styles --- */
+.header-top-bar {
+    background-color: #FDAAAA;
+    font-size: 0.8rem;
+    padding: 8px 0;
+}
+
+.header-main {
+    background-color: #FFD5D5;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.header-main .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: #DC143C;
+    font-weight: 700;
+}
+
+.header-main .input-group .form-control {
+    border-right: none;
+}
+
+.header-main .input-group .btn-search {
+    background-color: #FF3F7F;
+    color: white;
+    border: none;
+}
+
+.header-main .btn-search:hover {
+    background-color: #dd809d;
+}
+
+.header-main .user-icons a {
+    text-decoration: none;
+}
+
+/* --- Navigation Bar Styles --- */
+.main-navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .05);
+
+}
+
+
+.main-navbar .nav-link {
+    font-weight: 500;
+    color: #333;
+    transition: color 0.2s, font-weight 0.2s;
+}
+
+.main-navbar .nav-link:hover {
+    color: #E45A92;
+}
+
+.main-navbar .nav-link.active {
+    color: #E45A92 !important;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ffd5d5 0%, #ff3f7f 100%);
+    border-radius: 8px;
+}
+
+.main-navbar .nav-link.active:hover {
+    color: #fff !important;
+    background: linear-gradient(90deg, #ff3f7f 0%, #e45a92 100%);
+    font-weight: 800;
+    box-shadow: 0 2px 8px rgba(255, 63, 127, 0.12);
+}
+
+/* --- Page Content Styles --- */
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/img1.webp');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 8px 32px rgba(220, 20, 60, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section h1 {
+    color: #d3a8b1;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-section p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.hero-section .btn {
+    background-color: #FF3F7F;
+    border: none;
+    padding: 10px 32px;
+    font-size: 1.3rem;
+    color: white;
+    border-radius: 32px;
+    box-shadow: 0 2px 8px rgba(255, 63, 127, 0.12);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.hero-section .btn:hover {
+    background-color: #E45A92;
+    box-shadow: 0 4px 16px rgba(255, 63, 127, 0.18);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #E45A92;
+    position: relative;
+}
+.section-title:after {
+    content: '';
+    display: block;
+    margin: 0.5rem auto 0 auto;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #FF3F7F 0%, #FDAAAA 100%);
+    border-radius: 2px;
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.04);
+    box-shadow: 0 8px 24px rgba(255, 63, 127, 0.15);
+}
+
+/* Product Card Styling */
+.card {
+    transition: box-shadow 0.3s, transform 0.3s;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.07);
+    width: 100%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 16px;
+}
+.card:hover {
+    box-shadow: 0 8px 32px rgba(220, 20, 60, 0.18);
+    transform: translateY(-4px) scale(1.03);
+}
+
+/* Price Styling */
+.product-price {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #E45A92;
+    border-radius: 8px;
+    padding: 0px 0px;
+    display: inline-block;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+.testimonial-card {
+    background-color: #F5D2D2;
+    border: none;
+}
+
+.best-seller-section .btn {
+    background-color: #FF3F7F;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(255, 63, 127, 0.12);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    border-radius: 32px;
+}
+.best-seller-section .btn:hover {
+    background-color: #E45A92;
+    box-shadow: 0 4px 16px rgba(255, 63, 127, 0.18);
+    transform: translateY(-2px) scale(1.04);
+}
+
+
+/* --- New Section Styles --- */
+.about-section {
+    background-color: #F5D2D2;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.07);
+}
+
+.about-section img {
+    object-fit: cover;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.contact-section .contact-info i {
+    font-size: 1.5rem;
+    color: #FF0066;
+}
+
+
+.divider {
+    border-top: 1px solid #E45A92;
+    margin: 15px 0;
+    opacity: 0.5;
+}
+
+.section-separator {
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, #FF3F7F 0%, #FDAAAA 100%);
+    border-radius: 4px;
+    margin: 32px 0;
+    opacity: 0.15;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(15, 20, 40, 0.04);
+}
+
+/* --- Footer Styles --- */
+.footer {
+    position: static;
+    background-color: #343a40;
+    color: white;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -2px 8px rgba(220, 20, 60, 0.07);
+}
+
+/* --- User Dropdown Modern Style --- */
+.user-dropdown .dropdown-menu {
+    min-width: 160px;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.user-dropdown .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #333;
+    padding: 8px 15px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.user-dropdown .dropdown-item i {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* --- Remove hover effect from user dropdown --- */
+.user-dropdown .dropdown-item:hover {
+    background-color: transparent !important;
+    color: inherit !important;
+}
+
+.user-dropdown .dropdown-item:focus {
+    background-color: transparent !important;
+    color: inherit !important;
+    outline: none !important;
+}

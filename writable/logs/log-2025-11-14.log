@@ -1,0 +1,955 @@
+DEBUG - 2025-11-14 05:05:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:05:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:06:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:07:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:07:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:09:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:09:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:09:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:09:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:10:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:10:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:10:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:10:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:10:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:10:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:11:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:11:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:11:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:11:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:11:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:12:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-14 05:12:56 --> mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause' in C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`pro...', 0)
+#1 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`pro...')
+#2 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`pro...')
+#3 C:\xampp\htdocs\project-ecom\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`pro...', Array, false)
+#4 C:\xampp\htdocs\project-ecom\app\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+#6 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+#7 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\project-ecom\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\project-ecom\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\project-ecom\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\project-ecom\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2025-11-14 05:12:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+[Method: GET, Route: staff/reports/daily]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 2 APPPATH\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:12:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 4 APPPATH\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:12:56 --> [Caused by] mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 5 APPPATH\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:12:56 --> ErrorException: Undefined array key 1
+[Method: GET, Route: staff/reports/weekly]
+in APPPATH\Controllers\StaffController.php on line 179.
+ 1 APPPATH\Controllers\StaffController.php(179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\project-ecom\\app\\Controllers\\StaffController.php', 179)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getWeeklyReport()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+ERROR - 2025-11-14 05:12:56 --> mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause' in C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`pro...', 0)
+#1 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`pro...')
+#2 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`pro...')
+#3 C:\xampp\htdocs\project-ecom\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`pro...', Array, false)
+#4 C:\xampp\htdocs\project-ecom\app\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+#6 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+#7 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\project-ecom\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\project-ecom\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\project-ecom\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\project-ecom\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2025-11-14 05:12:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+[Method: GET, Route: staff/reports/monthly]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = :DATE_FORMAT(o.order_date, "%Y-%m"):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 2 APPPATH\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:12:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = :DATE_FORMAT(o.order_date, "%Y-%m"):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 4 APPPATH\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:12:56 --> [Caused by] mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = :DATE_FORMAT(o.order_date, "%Y-%m"):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 5 APPPATH\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+DEBUG - 2025-11-14 05:17:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:17:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-14 05:17:36 --> mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause' in C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`pro...', 0)
+#1 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`pro...')
+#2 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`pro...')
+#3 C:\xampp\htdocs\project-ecom\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`pro...', Array, false)
+#4 C:\xampp\htdocs\project-ecom\app\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+#6 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+#7 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\project-ecom\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\project-ecom\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\project-ecom\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\project-ecom\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2025-11-14 05:17:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+[Method: GET, Route: staff/reports/daily]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 2 APPPATH\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:17:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 4 APPPATH\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:17:36 --> [Caused by] mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 5 APPPATH\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:17:36 --> ErrorException: Undefined array key 1
+[Method: GET, Route: staff/reports/weekly]
+in APPPATH\Controllers\StaffController.php on line 179.
+ 1 APPPATH\Controllers\StaffController.php(179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\project-ecom\\app\\Controllers\\StaffController.php', 179)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getWeeklyReport()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+ERROR - 2025-11-14 05:17:37 --> mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause' in C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`pro...', 0)
+#1 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`pro...')
+#2 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`pro...')
+#3 C:\xampp\htdocs\project-ecom\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`pro...', Array, false)
+#4 C:\xampp\htdocs\project-ecom\app\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+#6 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+#7 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\project-ecom\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\project-ecom\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\project-ecom\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\project-ecom\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2025-11-14 05:17:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+[Method: GET, Route: staff/reports/monthly]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = :DATE_FORMAT(o.order_date, "%Y-%m"):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 2 APPPATH\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:17:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = :DATE_FORMAT(o.order_date, "%Y-%m"):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 4 APPPATH\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:17:37 --> [Caused by] mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = :DATE_FORMAT(o.order_date, "%Y-%m"):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 5 APPPATH\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+DEBUG - 2025-11-14 05:18:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:18:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-14 05:18:54 --> mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause' in C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`pro...', 0)
+#1 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`pro...')
+#2 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`pro...')
+#3 C:\xampp\htdocs\project-ecom\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`pro...', Array, false)
+#4 C:\xampp\htdocs\project-ecom\app\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+#6 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+#7 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\project-ecom\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\project-ecom\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\project-ecom\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\project-ecom\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2025-11-14 05:18:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+[Method: GET, Route: staff/reports/daily]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 2 APPPATH\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:18:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 4 APPPATH\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:18:54 --> [Caused by] mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 5 APPPATH\Controllers\StaffController.php(136): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:18:54 --> ErrorException: Undefined array key 1
+[Method: GET, Route: staff/reports/weekly]
+in APPPATH\Controllers\StaffController.php on line 179.
+ 1 APPPATH\Controllers\StaffController.php(179): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\xampp\\htdocs\\project-ecom\\app\\Controllers\\StaffController.php', 179)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getWeeklyReport()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+ERROR - 2025-11-14 05:18:54 --> mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause' in C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`pro...', 0)
+#1 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`pro...')
+#2 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`pro...')
+#3 C:\xampp\htdocs\project-ecom\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`pro...', Array, false)
+#4 C:\xampp\htdocs\project-ecom\app\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+#6 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+#7 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\project-ecom\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\project-ecom\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\project-ecom\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\project-ecom\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2025-11-14 05:18:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+[Method: GET, Route: staff/reports/monthly]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = :DATE_FORMAT(o.order_date, "%Y-%m"):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 2 APPPATH\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:18:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = :DATE_FORMAT(o.order_date, "%Y-%m"):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 4 APPPATH\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:18:54 --> [Caused by] mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = \'\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE_FORMAT(o.order_date, "%Y-%m") = :DATE_FORMAT(o.order_date, "%Y-%m"):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 5 APPPATH\Controllers\StaffController.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getMonthlyReport()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+DEBUG - 2025-11-14 05:25:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:28:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-14 05:28:42 --> mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause' in C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`pro...', 0)
+#1 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`pro...')
+#2 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`pro...')
+#3 C:\xampp\htdocs\project-ecom\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`pro...', Array, false)
+#4 C:\xampp\htdocs\project-ecom\app\Controllers\StaffController.php(132): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+#6 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+#7 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\project-ecom\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\project-ecom\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\project-ecom\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\project-ecom\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2025-11-14 05:28:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+[Method: GET, Route: staff/getDailyReport]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 2 APPPATH\Controllers\StaffController.php(132): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:28:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 4 APPPATH\Controllers\StaffController.php(132): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:28:42 --> [Caused by] mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 5 APPPATH\Controllers\StaffController.php(132): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+DEBUG - 2025-11-14 05:28:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-11-14 05:28:47 --> mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause' in C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\project-ecom\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`pro...', 0)
+#1 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`pro...')
+#2 C:\xampp\htdocs\project-ecom\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`pro...')
+#3 C:\xampp\htdocs\project-ecom\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`pro...', Array, false)
+#4 C:\xampp\htdocs\project-ecom\app\Controllers\StaffController.php(132): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+#6 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+#7 C:\xampp\htdocs\project-ecom\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\project-ecom\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\project-ecom\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\project-ecom\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\project-ecom\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+CRITICAL - 2025-11-14 05:28:47 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+[Method: GET, Route: staff/getDailyReport]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 2 APPPATH\Controllers\StaffController.php(132): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:28:47 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 4 APPPATH\Controllers\StaffController.php(132): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+CRITICAL - 2025-11-14 05:28:47 --> [Caused by] mysqli_sql_exception: Unknown column 'o.order_date' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = \'2025-11-14\'
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.`product_name` as `flower`, SUM(oi.quantity) as stock_sold, `p`.`stock` as `current_stock`, `p`.`product_id`
+FROM `order_items` `oi`
+JOIN `orders` `o` ON `o`.`order_id` = `oi`.`order_id`
+JOIN `products` `p` ON `p`.`product_id` = `oi`.`product_id`
+WHERE DATE(o.order_date) = :DATE(o.order_date):
+GROUP BY `oi`.`product_id`, `p`.`product_name`, `p`.`stock`, `p`.`product_id`', [...], false)
+ 5 APPPATH\Controllers\StaffController.php(132): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\StaffController->getDailyReport()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\StaffController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\project-ecom\\public\\index.php')
+DEBUG - 2025-11-14 05:31:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:33:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:35:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:35:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:36:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:36:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:36:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:36:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:36:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:36:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:37:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:37:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:37:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:37:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:39:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:39:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:39:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:44:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:44:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:44:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:44:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:44:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:45:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:45:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:45:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:46:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:46:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:46:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:46:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:46:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:46:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:46:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:47:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:47:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:48:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:49:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:49:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:49:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:49:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:49:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:54:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:57:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:59:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 05:59:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:00:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:00:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:01:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:01:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:01:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:01:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:01:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:02:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:02:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:02:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:02:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:02:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:02:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:06:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:06:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:06:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:08:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:10:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:10:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:13:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:13:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:13:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:13:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:14:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:14:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:14:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:14:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:14:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:15:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:15:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:15:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:15:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:15:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:15:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:15:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:15:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:15:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:16:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:16:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:16:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:16:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:16:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:16:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:16:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:16:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:17:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:18:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:18:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:18:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:18:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:18:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:19:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:19:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:19:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:19:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:19:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:21:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:21:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:22:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:22:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:22:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:23:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:23:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:23:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:23:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:25:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:25:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:25:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:25:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:25:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:25:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:25:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-11-14 06:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

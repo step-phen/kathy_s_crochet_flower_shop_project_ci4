@@ -1,0 +1,136 @@
+ .checkout-form-label {
+     font-weight: 500;
+     margin-bottom: 0.25rem;
+ }
+
+ .checkout-input,
+ .checkout-select {
+     border-radius: 8px;
+     border: 1px solid #e5e5e5;
+     padding: 0.75rem 1rem;
+     font-size: 1rem;
+     width: 100%;
+     margin-bottom: 1rem;
+ }
+
+ .checkout-summary-card {
+     background: #fff;
+     border-radius: 18px;
+     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+     padding: 2rem 1.5rem;
+ }
+
+ .checkout-summary-card .divider {
+     border-top: 1.5px solid #eee;
+     margin: 1rem 0;
+ }
+
+ .checkout-summary-card .line {
+     display: flex;
+     justify-content: space-between;
+     font-size: 1rem;
+     margin-bottom: 0.5rem;
+ }
+
+ .checkout-order-list {
+     list-style: none;
+     padding: 0;
+     margin: 0 0 1.5rem 0;
+ }
+
+ .checkout-order-list li {
+     display: flex;
+     align-items: center;
+     margin-bottom: 1.25rem;
+ }
+
+ .checkout-order-img {
+     width: 56px;
+     height: 56px;
+     object-fit: cover;
+     border-radius: 12px;
+     margin-right: 16px;
+ }
+
+ .checkout-order-info {
+     flex: 1;
+ }
+
+ .checkout-order-qty {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+ }
+
+ .checkout-order-qty-btn {
+     border: none;
+     background: #f5f5f5;
+     border-radius: 50%;
+     width: 28px;
+     height: 28px;
+     font-size: 1.1rem;
+     cursor: pointer;
+ }
+
+ .checkout-confirm-btn {
+     background: #198754;
+     color: #fff;
+     font-weight: 600;
+     border-radius: 12px;
+     padding: 0.75rem 0;
+     font-size: 1.1rem;
+     width: 100%;
+     margin-top: 1.5rem;
+ }
+
+ .checkout-payment-methods {
+     display: flex;
+     gap: 2rem;
+     margin-top: 1rem;
+ }
+
+ .checkout-payment-radio {
+     accent-color: #198754;
+ }
+
+ .checkout-delivery-toggle {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     margin-bottom: 1rem;
+ }
+
+ .checkout-delivery-switch {
+     width: 40px;
+     height: 22px;
+     background: #e5e5e5;
+     border-radius: 11px;
+     position: relative;
+     cursor: pointer;
+ }
+
+ .checkout-delivery-switch input {
+     opacity: 0;
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     left: 0;
+     top: 0;
+     margin: 0;
+     cursor: pointer;
+ }
+
+ .checkout-delivery-switch span {
+     position: absolute;
+     left: 2px;
+     top: 2px;
+     width: 18px;
+     height: 18px;
+     background: #198754;
+     border-radius: 50%;
+     transition: left 0.2s;
+ }
+
+ .checkout-delivery-switch input:checked+span {
+     left: 20px;
+ }

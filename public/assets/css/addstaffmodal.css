@@ -1,0 +1,122 @@
+/* Add Staff Modal Custom Styles */
+#addStaffModal .input-group-text {
+    min-width: 45px;
+    justify-content: center;
+}
+
+#addStaffModal .form-control:focus,
+#addStaffModal .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+
+#addStaffModal .input-group-text {
+    border-right: none;
+    background-color: #f8f9fa;
+}
+
+#addStaffModal .input-group .form-control,
+#addStaffModal .input-group .form-select {
+    border-left: none;
+}
+
+#addStaffModal .input-group:focus-within .input-group-text {
+    border-color: #667eea;
+    background-color: #e7e9fc;
+    color: #667eea;
+}
+
+/* Image upload hover effect */
+#addStaffModal #imagePreview {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#addStaffModal label[for="image"] {
+    transition: all 0.3s ease;
+}
+
+#addStaffModal label[for="image"]:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Form validation styles */
+#addStaffModal .form-control.is-invalid,
+#addStaffModal .form-select.is-invalid {
+    border-color: #dc3545;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+#addStaffModal .form-control.is-valid,
+#addStaffModal .form-select.is-valid {
+    border-color: #198754;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* Section headers */
+#addStaffModal h6.text-uppercase {
+    position: relative;
+    padding-bottom: 8px;
+}
+
+#addStaffModal h6.text-uppercase::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+/* Modal animation */
+#addStaffModal.show .modal-dialog {
+    animation: slideInDown 0.3s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Button hover effects */
+#addStaffModal .modal-footer .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#addStaffModal .modal-footer .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#addStaffModal .modal-footer .btn-light:hover {
+    background-color: #e9ecef;
+    transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #addStaffModal .modal-dialog {
+        margin: 0.5rem;
+    }
+    
+    #addStaffModal #imagePreview {
+        width: 100px;
+        height: 100px;
+    }
+}
