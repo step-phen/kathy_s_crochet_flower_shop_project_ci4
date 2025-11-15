@@ -1,8 +1,14 @@
+# kathy_s_crochet_flower_shop_project_ci4
+
+An e-commerce site built with CodeIgniter 4 for **Kathy’s Crochet Flower Shop**, offering beautifully handcrafted crochet flower products with a smooth and user-friendly shopping experience.
+
+---
+
 # CodeIgniter 4 Framework
 
 ## What is CodeIgniter?
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
+CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure.
 More information can be found at the [official site](https://codeigniter.com).
 
 This repository holds the distributable version of the framework.
@@ -27,7 +33,7 @@ framework are exposed.
 
 ## Repository Management
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
+We use GitHub issues in our main repository to track **BUGS** and to track approved **DEVELOPMENT** work packages.
 We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
 FEATURE REQUESTS.
 
@@ -44,8 +50,8 @@ Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/
 
 PHP version 8.1 or higher is required, with the following extensions installed:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+- intl
+- mbstring
 
 > [!WARNING]
 > - The end of life date for PHP 7.4 was November 28, 2022.
@@ -55,6 +61,6 @@ PHP version 8.1 or higher is required, with the following extensions installed:
 
 Additionally, make sure that the following extensions are enabled in your PHP:
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+- json (enabled by default)
+- mysqlnd if you use MySQL
+- libcurl if you use HTTP\CURLRequest
